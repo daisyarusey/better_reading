@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activities.MainActivity"
+    android:background="@drawable/bgimage">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/bodyTxt"
+        android:text="Enter the book title and get the book's details"
+        android:layout_above="@+id/searchText"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="400dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchText"
+        android:padding="5dp"
+        android:hint="Enter book title"
+        android:layout_above="@+id/search_btn"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="150dp"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_btn"
+        android:text="Find Books"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

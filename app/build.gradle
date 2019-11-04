@@ -5,11 +5,33 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.moringaschool.betterreading"
-        minSdkVersion 15
+        minSdkVersion 25
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+    }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'GOODREADS_API_KEY', GoodReadsApiKey
     }
     buildTypes {
         release {
@@ -29,4 +51,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    implementation 'androidx.drawerlayout:drawerlayout:1.0.0'
+
+    //recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.json:json:20180130'
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'com.firebaseui:firebase-ui-database:0.4.1'
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
 }
